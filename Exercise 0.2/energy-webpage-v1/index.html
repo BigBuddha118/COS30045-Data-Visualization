@@ -2,13 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Energy Data Webpage</title>
+  <title>Home | Appliance Energy Consumption</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1>Energy Data Webpage</h1>
-  <img src="images/PowerIcon.png" alt="Power Icon" width="80">
-  <p>Welcome to my Energy Data Visualisation project.</p>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo-link">
+      <img src="images/PowerIcon.png" alt="Power logo">
+      <span>Appliance Energy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="televisions.html">Televisions</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Appliance Energy Consumption in Australia</h1>
+
+    <div class="card">
+      <p>
+        Household appliances make up a significant share of residential electricity use
+        across Australia. Understanding how much energy common appliances consume can help
+        households make informed decisions about usage habits, upgrades, and overall
+        electricity costs.
+      </p>
+      <p>
+        This site explores placeholder data and information about appliance energy use,
+        starting with televisions, as a foundation for future data visualisation work
+        later in this unit.
+      </p>
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        What counts as "appliance energy consumption"?
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>It refers to the amount of electricity an appliance uses over a given period,
+        usually measured in kilowatt-hours (kWh).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Why does this matter for Australian households?
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Electricity prices and usage patterns vary across states, so understanding
+        appliance-level consumption helps households manage rising energy costs.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Where does the data on this site come from?
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Current content is placeholder text for demonstration purposes. Real datasets
+        will be introduced in later exercises for this unit.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Your Name Here</p>
+    <p class="ai-note">Some code and the site icon were generated with the assistance of Generative AI (Claude).</p>
+  </footer>
 
   <script src="js/scripts.js"></script>
 </body>

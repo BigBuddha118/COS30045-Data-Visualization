@@ -1,4 +1,178 @@
+/* ===========================
+   Root variables (logo colours)
+   =========================== */
+:root {
+  --amber: #ffc107;
+  --amber-dark: #e0a800;
+  --charcoal: #212121;
+  --light-bg: #fafafa;
+  --text: #333333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 40px;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--light-bg);
+  line-height: 1.6;
+}
+
+/* ===========================
+   Navigation
+   =========================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--charcoal);
+  padding: 10px 30px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-link img {
+  height: 40px;
+  width: 40px;
+}
+
+.logo-link span {
+  color: var(--amber);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-links li a:hover {
+  background-color: var(--amber);
+  color: var(--charcoal);
+}
+
+.nav-links li a.active {
+  background-color: var(--amber-dark);
+  color: var(--charcoal);
+  font-weight: bold;
+}
+
+/* ===========================
+   Main content
+   =========================== */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  color: var(--charcoal);
+  border-bottom: 3px solid var(--amber);
+  padding-bottom: 10px;
+}
+
+h2 {
+  color: var(--amber-dark);
+}
+
+/* ===========================
+   FAQ Accordion
+   =========================== */
+.faq-item {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background-color: var(--amber);
+  color: var(--charcoal);
+  border: none;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.faq-question:hover {
+  background-color: var(--amber-dark);
+}
+
+.faq-question .icon {
+  transition: transform 0.2s ease;
+}
+
+.faq-question.open .icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 18px;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background-color: #fff;
+}
+
+.faq-answer.open {
+  max-height: 300px;
+  padding: 14px 18px;
+}
+
+/* ===========================
+   Cards / general content blocks
+   =========================== */
+.card {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+footer {
+  background-color: var(--charcoal);
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+footer .ai-note {
+  color: #999;
+  font-size: 0.8rem;
+  margin-top: 5px;
 }
