@@ -1,104 +1,107 @@
-# Exercise 3 – Data Story: TV Energy Consumption
+# Appliance Energy Consumption Website
 
-## Overview
+A small multi-page website built for **COS30045 – Data Visualisation**, extended from
+Exercise 0.2 into **Exercise 3 – Communicating Data Insights**.
 
-In this exercise, you will develop a **data story** based on the **TV Energy Consumption dataset**. Using the website created in **Exercise 0.2**, you will extend your work to present a meaningful narrative supported by data visualisations.
-
-Your goal is to communicate insights from the dataset in a clear and engaging way through your **website and written explanation**.
-
-You must use the **Exercise 3 folder in your existing forked repository** and reuse the files created in **Exercise 0.2**.
-
----
+## Purpose
+This project demonstrates:
+- structuring a simple multi-page website using HTML
+- consistent styling across pages using CSS
+- basic interactivity with JavaScript (navigation highlighting, FAQ accordion, Chart.js charts)
+- regular, meaningful commits to a GitHub repository
+- turning a real dataset into an audience-focused data story (Exercise 3)
 
 ## Data Story
 
-### Audience
+**Audience:** Australian households currently shopping for a new TV — budget-conscious,
+not necessarily technical, comparing screen size and price across models in-store or online.
 
-The target audience for this visualisation includes:
+**What they want to know:** "Will a bigger screen blow out my power bill, and does the type
+of screen (LCD vs OLED) actually matter for running cost?"
 
-- Consumers interested in **energy-efficient televisions**
-- Policy makers and regulators interested in **energy consumption trends**
-- Researchers studying **energy efficiency in consumer electronics**
+**The story:** Using the Australian Government's Energy Rating registration database
+(4,724 approved TV models), the Televisions page shows that:
+1. Running cost rises sharply and consistently with screen size (r = 0.86) — roughly an
+   8× difference in estimated annual cost between a 32"-or-smaller TV and an 80"+ TV.
+2. For shoppers set on a very large screen, panel technology still matters: in the 80"+
+   band, OLED models average a noticeably *lower* running cost than standard LCD/LED models,
+   contrary to OLED's power-hungry reputation.
 
-These audiences are interested in understanding how **television energy consumption varies across models, sizes, and technologies**, and how these factors influence overall energy usage.
+**Recommendation to the audience:** budget for running cost as part of the TV's total cost
+of ownership, and compare the energy label's kWh/year figure and star rating — not just
+screen size or panel technology by reputation — before buying.
 
-### Story Overview
+See `televisions.html` for the full charts and narrative.
 
-This visualisation explores patterns in **TV energy consumption** across different television models and specifications.
+## Pages
+- `index.html` – Home page with intro content, a Data Story summary, and FAQ accordion
+- `televisions.html` – The full data story: audience framing, two Chart.js visualisations, and supporting narrative
+- `about.html` – About the project, including **About the Data** and **AI Declaration** sections
 
-The goal is to help viewers understand:
+## Folder Structure
+```
+energy-webpage-v1/
+├── css/
+│   └── styles.css
+├── js/
+│   └── scripts.js
+├── images/
+│   └── PowerIcon.png
+├── index.html
+├── televisions.html
+├── about.html
+└── README.md
+```
 
-- How energy consumption varies between television models
-- The relationship between **screen size and power consumption**
-- How **energy efficiency ratings** impact energy usage
-- Trends that may help consumers choose more **energy-efficient televisions**
-
-The website presents these insights through visualisations and explanatory text that guide the viewer through the data.
-
----
+## How to Run
+Open `index.html` in a browser, or use the **Live Server** extension in VS Code
+for automatic reload while editing.
 
 ## About the Data
 
-### Data Source
+**Data source:** Television data is drawn from the Australian Government's
+[Energy Rating registration database](https://reg.energyrating.gov.au/), the public
+register of GEMS-regulated appliances approved for sale in Australia. The snapshot used
+(`data/tv_full.csv`) contains 4,724 currently approved TV registrations (Feb 2026), including
+brand, model, screen size, panel technology, power draw, and labelled energy consumption
+(kWh/year). Aggregated figures used in the charts are in `data/tv_summary_by_size.csv` and
+`data/tv_summary_80in_by_tech.csv`.
 
-The dataset used in this project contains information about **television models and their energy consumption characteristics**, including power usage, screen size, technology type, and efficiency ratings.
+**Data processing:** Screen size was converted cm → inches to match retail marketing.
+Models were grouped into six retail-style size bands. Annual running cost was estimated as
+labelled kWh/year × AU$0.30/kWh (an approximate, illustrative electricity rate — real tariffs
+vary by state/retailer). Brand names are recorded inconsistently in the raw data (e.g.
+"SAMSUNG" / "Samsung" / "SAMSUNG ELECTRONICS") and were **not** cleaned, since the story
+groups by size/technology rather than brand; this would need addressing for any brand-level
+analysis.
 
-The dataset was provided as part of the course materials.
+**Privacy:** The dataset contains only product registration data (brand, model, technical
+specs) submitted by manufacturers/importers to a government regulator — no personal or
+household data, and no individuals are identifiable.
 
-### Data Processing
+**Accuracy and limitations:**
+- Labelled kWh/year figures come from standardised lab testing (AS/NZS 62087.1:2010), not
+  real households — actual use varies with brightness, viewing hours, and picture mode.
+- The $0.30/kWh rate is illustrative, not a bill forecast.
+- The 80"+ "LCD" (non-LED) group has a very small sample (n = 18) vs LCD (LED) (n = 535) and
+  OLED (n = 103) — read that comparison cautiously.
+- "Country" refers to country of manufacture, not country of sale, and was not used here.
 
-Before creating visualisations, the dataset was processed to ensure it was suitable for analysis. This included:
-
-- Cleaning missing or inconsistent values
-- Selecting relevant attributes for visualisation
-- Organising the data into formats suitable for web visualisation
-
-### Privacy
-
-The dataset does not contain any **personal or sensitive information**. It focuses solely on product specifications and energy consumption data related to television devices.
-
-### Accuracy and Limitations
-
-While the dataset provides useful information about TV energy consumption, there are some limitations:
-
-- The dataset may not include **all available television models**
-- Some information may be **outdated or incomplete**
-- Energy consumption may vary depending on **real-world usage conditions**
-
-These factors should be considered when interpreting the visualisations.
-
-### Ethics
-
-When presenting data visualisations, it is important to ensure that the information is represented **accurately and responsibly**.
-
-This project follows ethical data visualisation practices by:
-
-- Avoiding misleading visual representations
-- Clearly explaining the context of the data
-- Presenting information transparently so viewers can interpret the results correctly
-
----
+**Ethics:** The story reports on aggregated size/technology categories rather than naming or
+ranking individual brands, to avoid unfairly singling out manufacturers given the known
+brand-name recording inconsistencies. All assumptions (electricity rate, size bands) are
+stated explicitly so readers can judge how much weight to put on exact dollar figures.
 
 ## AI Declaration
 
-Artificial Intelligence (AI) tools may have been used to assist with aspects of this assignment, such as:
+Generative AI (Claude, Anthropic) was used to assist with this project:
+- Boilerplate HTML/CSS/JS structure and the site icon (Exercise 0.2).
+- Profiling and aggregating the raw Energy Rating CSV (grouping by size/technology, computing
+  averages) to produce the summary figures used in the Exercise 3 charts.
+- Drafting the Chart.js configuration and the data story narrative text, based on the
+  aggregated figures.
+- Drafting the "About the Data" and AI Declaration wording.
 
-- Generating example code
-- Improving code structure
-- Assisting with documentation writing
-
-All AI-generated assistance was reviewed, modified where necessary, and integrated responsibly into the project.
-
----
-
-## Website Storytelling
-
-The website has been updated to communicate a **data-driven story** based on the TV energy consumption dataset.
-
-The website includes:
-
-- Visualisations that present key insights from the dataset
-- Text explanations that help readers understand the meaning of the visualisations
-- Context that connects the data to real-world implications
-
-The aim is to guide the viewer through the data in a way that is **informative, engaging, and easy to understand**.
+All AI-assisted output was reviewed by the author, checked against the source data, and
+edited before inclusion. The choice of audience, question, story angle, and final accuracy
+review were made by the author.
