@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exercise 4.1 - SVG House and Garden</title>
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  h1 { margin-bottom: 4px; }
+  p.sub { color: #555; margin-top: 0; }
+  svg {
+    background: #eaf6ff;
+    border: 2px solid #333;
+    border-radius: 6px;
+  }
+  /* Windows are grouped, so this one rule styles BOTH windows identically */
+  .window {
+    fill: #cdeeff;
+    stroke: #333;
+    stroke-width: 2;
+  }
+  .window-cross {
+    stroke: #333;
+    stroke-width: 2;
+  }
+</style>
+</head>
+<body>
+
+<h1>My House and Garden</h1>
+<p class="sub">Exercise 4.1 — SVG primitives: rect, circle, ellipse, line, polyline, polygon, path, text, g</p>
+
+<!-- ============================================================
+     SVG canvas: viewBox 0 0 800 600
+     Coordinate system reminder: (0,0) is TOP-LEFT.
+     X increases to the right, Y increases DOWNWARD.
+     ============================================================ -->
+<svg viewBox="0 0 800 600" width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- ============ SKY ============ -->
+  <rect x="0" y="0" width="800" height="450" fill="#bfe9ff" />
+
+  <!-- ============ SUN (circle + line rays) ============ -->
+  <circle cx="110" cy="90" r="40" fill="#ffdd55" stroke="#e6b800" stroke-width="3" />
+  <!-- Sun rays: each ray is a <line> from a point near the sun outward -->
+  <line x1="110" y1="30" x2="110" y2="10" stroke="#ffb703" stroke-width="4" />
+  <line x1="110" y1="150" x2="110" y2="170" stroke="#ffb703" stroke-width="4" />
+  <line x1="50" y1="90" x2="30" y2="90" stroke="#ffb703" stroke-width="4" />
+  <line x1="170" y1="90" x2="190" y2="90" stroke="#ffb703" stroke-width="4" />
+  <line x1="68" y1="48" x2="54" y2="34" stroke="#ffb703" stroke-width="4" />
+  <line x1="152" y1="132" x2="166" y2="146" stroke="#ffb703" stroke-width="4" />
+  <line x1="152" y1="48" x2="166" y2="34" stroke="#ffb703" stroke-width="4" />
+  <line x1="68" y1="132" x2="54" y2="146" stroke="#ffb703" stroke-width="4" />
+
+  <!-- ============ CLOUDS (overlapping ellipses) ============ -->
+  <g id="cloud1">
+    <ellipse cx="600" cy="80" rx="45" ry="25" fill="#ffffff" opacity="0.9" />
+    <ellipse cx="640" cy="70" rx="35" ry="22" fill="#ffffff" opacity="0.9" />
+    <ellipse cx="565" cy="70" rx="30" ry="20" fill="#ffffff" opacity="0.9" />
+  </g>
+  <g id="cloud2">
+    <ellipse cx="330" cy="60" rx="35" ry="18" fill="#ffffff" opacity="0.8" />
+    <ellipse cx="360" cy="55" rx="25" ry="15" fill="#ffffff" opacity="0.8" />
+  </g>
+
+  <!-- ============ GRASS / GROUND ============ -->
+  <rect x="0" y="450" width="800" height="150" fill="#7cc576" />
+
+  <!-- Distant hills using a polygon for a bit of depth -->
+  <polygon points="0,450 150,410 320,450" fill="#66b25f" opacity="0.7" />
+  <polygon points="480,450 650,420 800,450" fill="#66b25f" opacity="0.7" />
+
+  <!-- ============ WALKWAY (path with a curve) ============ -->
+  <!-- M = moveto, C = cubic bezier curve, L = lineto, Z = close path -->
+  <path d="M 370 450 
+           C 360 500, 355 550, 340 600
+           L 430 600
+           C 425 550, 420 500, 430 450
+           Z"
+        fill="#d9c79e" stroke="#b8a377" stroke-width="2" />
+
+  <!-- ============ HOUSE BODY ============ -->
+  <rect x="250" y="250" width="300" height="200" fill="#f2c185" stroke="#8a5a2b" stroke-width="3" />
+
+  <!-- ============ ROOF (polygon triangle) ============ -->
+  <polygon points="230,250 570,250 400,120" fill="#a1442e" stroke="#6b2a1c" stroke-width="3" stroke-linejoin="round" />
+
+  <!-- ============ CHIMNEY ============ -->
+  <rect x="470" y="150" width="35" height="100" fill="#8a5a2b" stroke="#5c3a1a" stroke-width="2" />
+  <!-- little rect on top as the chimney cap -->
+  <rect x="463" y="140" width="49" height="14" fill="#5c3a1a" />
+
+  <!-- ============ SMOKE (curved paths) ============ -->
+  <path d="M 487 138 C 480 120, 500 110, 493 90 C 486 70, 505 60, 498 45"
+        fill="none" stroke="#cccccc" stroke-width="4" stroke-linecap="round" opacity="0.8" />
+
+  <!-- ============ DOOR ============ -->
+  <rect x="370" y="360" width="60" height="90" fill="#6b3f21" stroke="#402612" stroke-width="2" rx="4" />
+  <circle cx="418" cy="405" r="3.5" fill="#f2c185" /> <!-- door knob -->
+
+  <!-- ============================================================
+       STEP 4: THE <g> GROUP ELEMENT
+       Both windows are built ONE time as a reusable block of shapes,
+       then placed twice using <g transform="translate(x,y)">.
+       Because they share the .window / .window-cross CSS classes,
+       styling changes apply to both identically.
+       ============================================================ -->
+
+  <!-- Window 1: translated to sit on the left side of the house -->
+  <g class="window-group" transform="translate(285,290)">
+    <rect class="window" x="0" y="0" width="60" height="60" />
+    <line class="window-cross" x1="30" y1="0" x2="30" y2="60" />
+    <line class="window-cross" x1="0" y1="30" x2="60" y2="30" />
+  </g>
+
+  <!-- Window 2: same shapes, just translated further right -->
+  <g class="window-group" transform="translate(455,290)">
+    <rect class="window" x="0" y="0" width="60" height="60" />
+    <line class="window-cross" x1="30" y1="0" x2="30" y2="60" />
+    <line class="window-cross" x1="0" y1="30" x2="60" y2="30" />
+  </g>
+
+  <!-- ============ GARDEN FENCE (polyline zig-zag) ============ -->
+  <polyline points="20,460 40,440 60,460 80,440 100,460 120,440 140,460 160,440 180,460 200,440 220,460"
+            fill="none" stroke="#8a5a2b" stroke-width="4" stroke-linejoin="round" />
+  <polyline points="600,460 620,440 640,460 660,440 680,460 700,440 720,460 740,440 760,460 780,440 800,460"
+            fill="none" stroke="#8a5a2b" stroke-width="4" stroke-linejoin="round" />
+
+  <!-- ============ BUSHES (ellipses) ============ -->
+  <ellipse cx="240" cy="450" rx="35" ry="22" fill="#4f9a4a" stroke="#356b33" stroke-width="2" />
+  <ellipse cx="560" cy="450" rx="35" ry="22" fill="#4f9a4a" stroke="#356b33" stroke-width="2" />
+
+  <!-- ============ FLOWERS (path stem + circle center + polygon petals) ============ -->
+  <g id="flower1" transform="translate(150,520)">
+    <path d="M 0 60 C -5 40, 5 20, 0 0" fill="none" stroke="#3a7d34" stroke-width="3" />
+    <polygon points="0,-14 6,-4 16,-4 8,3 11,14 0,7 -11,14 -8,3 -16,-4 -6,-4"
+             fill="#ff6b81" stroke="#c9435a" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="5" fill="#ffdd55" />
+  </g>
+
+  <g id="flower2" transform="translate(200,535)">
+    <path d="M 0 45 C -4 30, 4 15, 0 0" fill="none" stroke="#3a7d34" stroke-width="3" />
+    <polygon points="0,-12 5,-3 14,-3 7,3 9,12 0,6 -9,12 -7,3 -14,-3 -5,-3"
+             fill="#ffb3c6" stroke="#c9435a" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="4" fill="#ffdd55" />
+  </g>
+
+  <g id="flower3" transform="translate(620,530)">
+    <path d="M 0 50 C -4 34, 4 17, 0 0" fill="none" stroke="#3a7d34" stroke-width="3" />
+    <polygon points="0,-13 5,-4 15,-4 7,3 10,13 0,7 -10,13 -7,3 -15,-4 -5,-4"
+             fill="#8ec6ff" stroke="#3d7fc9" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="4.5" fill="#ffdd55" />
+  </g>
+
+  <!-- ============ TEXT ============ -->
+  <text x="400" y="580" text-anchor="middle" font-family="Arial, sans-serif"
+        font-size="22" fill="#3a2a1a" font-weight="bold">
+    Home Sweet Home
+  </text>
+  <text x="400" y="20" text-anchor="middle" font-family="Arial, sans-serif"
+        font-size="14" fill="#33607d">
+    SVG viewBox: 0 0 800 600
+  </text>
+
+</svg>
+
+</body>
+</html>
