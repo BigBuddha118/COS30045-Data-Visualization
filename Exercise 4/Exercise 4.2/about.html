@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us | Appliance Energy Consumption</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo-link">
+      <img src="images/PowerIcon.png" alt="Power logo">
+      <span>Appliance Energy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="televisions.html">Televisions</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>About This Project</h1>
+
+    <div class="card">
+      <p>
+        This website was built as part of <strong>COS30045 – Data Visualisation</strong>,
+        Exercise 0.2. The goal of this exercise was to practise structuring a small
+        multi-page website using HTML, CSS, and JavaScript, while learning the
+        development workflow with GitHub and VS Code.
+      </p>
+      <p>
+        This foundation will be extended in later exercises to include real data
+        visualisations built with tools such as D3.js.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>About the Data</h2>
+
+      <h3>Data source</h3>
+      <p>
+        The television dataset used in the Data Story (see the Televisions page) is drawn from the
+        Australian Government's <a href="https://reg.energyrating.gov.au/" target="_blank" rel="noopener">Energy
+        Rating registration database</a>, the public register of Greenhouse and Energy Minimum
+        Standards (GEMS)-regulated appliances approved for sale in Australia. The snapshot used here
+        contains 4,724 currently approved TV model registrations (extracted Feb 2026), including
+        brand, model, screen size, panel technology, standby/average power draw, and labelled energy
+        consumption (kWh/year).
+      </p>
+
+      <h3>Data processing</h3>
+      <p>
+        Screen size was converted from centimetres to inches to match how TVs are marketed and
+        compared in Australian retail. Models were grouped into six size bands that reflect common
+        retail categories (32" and under, 40–43", 50–55", 60–65", 70–75", 80"+). Annual running costs
+        were estimated by multiplying each model's labelled kWh/year figure by an assumed electricity
+        rate of AU$0.30/kWh, a rough mid-range figure — actual household tariffs vary by state,
+        retailer, and plan. We noticed brand names are recorded inconsistently in the raw register
+        (e.g. "SAMSUNG", "Samsung", and "SAMSUNG ELECTRONICS" all appear as separate values) — this
+        wasn't corrected for the charts shown here since our story groups by size and technology, not
+        brand, but it would need cleaning before any brand-level comparison.
+      </p>
+
+      <h3>Privacy</h3>
+      <p>
+        This dataset contains only product registration information (brand, model, technical
+        specifications) submitted by manufacturers/importers to a government regulator. It contains
+        no personal or household-level data, and no individuals are identifiable from it.
+      </p>
+
+      <h3>Accuracy and limitations</h3>
+      <ul>
+        <li>Labelled energy consumption figures come from standardised lab testing (AS/NZS 62087.1:2010)
+        under a fixed test pattern and viewing duration, not real households — actual usage will vary
+        with brightness settings, viewing hours, and picture mode.</li>
+        <li>The $0.30/kWh rate is an approximation for illustration, not a bill forecast; real
+        electricity prices vary significantly across Australian states and retailers.</li>
+        <li>The 80"+ "LCD" (non-LED) technology group has a very small sample in this dataset (n = 18)
+        compared to LCD (LED) (n = 535) and OLED (n = 103), so that particular average should be read
+        cautiously.</li>
+        <li>"Country" in the raw data refers to country of manufacture, not country of sale, and was
+        not used in this story.</li>
+      </ul>
+
+      <h3>Ethics</h3>
+      <p>
+        The data story intentionally reports on aggregated size and technology categories rather than
+        naming or ranking individual brands, to avoid unfairly singling out manufacturers based on a
+        dataset with known recording inconsistencies. All cost estimates and assumptions (electricity
+        rate, size bands) are stated explicitly so readers can judge how much weight to put on the
+        exact dollar figures rather than treating them as precise predictions.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>AI Declaration</h2>
+      <p>
+        Generative AI (Claude, Anthropic) was used to assist with this project in the following ways:
+      </p>
+      <ul>
+        <li>Boilerplate HTML/CSS/JS structure and the site icon (Exercise 0.2).</li>
+        <li>Profiling and aggregating the raw Energy Rating CSV (grouping by screen size and
+        technology, computing averages) to produce the summary figures used in the charts on the
+        Televisions page.</li>
+        <li>Drafting the Chart.js chart configuration and the narrative text of the data story, based
+        on the aggregated figures.</li>
+        <li>Drafting this "About the data" and AI Declaration wording.</li>
+      </ul>
+      <p>
+        All AI-assisted output was reviewed by the author, checked against the source data, and edited
+        before inclusion. The choice of audience, question, and story angle, and the final review of
+        accuracy, were made by the author.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Your Name Here</p>
+    <p class="ai-note">Some code and the site icon were generated with the assistance of Generative AI (Claude).</p>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
