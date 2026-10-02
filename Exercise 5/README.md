@@ -4,50 +4,20 @@
 Create a variety of different chart types using **D3.js**.
 
 ## Purpose
-In previous exercises, we created simple charts such as a horizontal bar chart. In this exercise, you will extend your skills by building multiple chart types and presenting them on a webpage.
+In previous exercises, we created simple charts such as a horizontal bar chart. In this exercise, multiple chart types are built and presented together on a single webpage, using D3 to visualise different types of data and to understand when different chart types are appropriate.
 
-This activity focuses on using **D3 to visualise different types of data** and understanding when different charts are appropriate.
+## Charts Built
 
-## Charts to Create
+- **Exercise 5.1 – Bar Chart**
+  Mean energy consumption (kWh/year) by screen technology (LED, OLED, LCD) for 55-inch TVs. Built with scaled, labelled x and y axes (`scaleBand` / `scaleLinear`).
 
-Using the provided **TV energy consumption dataset** (or your own dataset), your webpage must include the following chart types:
+- **Exercise 5.2 – Line Chart (with scatter points)**
+  Average wholesale electricity spot price ($/MWh) across the mainland NEM states, 1998–2024. Includes both a scatter-point layer and a connecting line, using `scaleLinear` for both axes and `d3.line()` as the path generator.
 
-- **Scatter Plot**  
-  Energy consumption vs star rating.
+- **Exercise 5.3 – Donut Chart**
+  Proportion of approved TV models by screen size category (Small / Medium / Large), using `d3.pie()` and `d3.arc()` with an ordinal colour scale.
 
-- **Donut Chart**  
-  Energy consumption for different screen technologies across all TVs combined.
+## Deviations from Brief
+The original brief specified the donut chart should show energy consumption by screen technology across all TVs, and a separate scatter plot of energy consumption vs. star rating. This submission instead uses a donut of TV size category proportions, and does not currently include a standalone energy-vs-star-rating scatter plot (the line chart's scatter points plot year vs. spot price, not energy vs. rating). This note is left here as an accurate record — remove it if a star-rating scatter plot is added before submission, or if the alternate dataset choice is confirmed acceptable.
 
-- **Bar Chart**  
-  Energy consumption for different screen technologies for **55-inch TVs only**.
-
-- **Line Chart**  
-  Spot power prices from **1998 to 2024** (either plot the average or include a line for each state).
-
-You may use the **provided datasets** or your **own dataset**, but your webpage must include **one example of each chart type**.
-
-## Preparation
-
-Before starting this exercise, it is recommended that you:
-
-- Review this week's **lecture slides**
-- Review **Chapter 4 and Chapter 5 of Dufour and Meeks (2024)**
-
-## Instructions
-
-Use the **forked repository that you created earlier for this unit**.
-
-1. Open your existing **forked repository**.
-2. Navigate to the **Exercise 5 folder**.
-3. Add your code and files for this exercise inside that folder.
-4. Build a webpage that displays the required charts using **D3.js**.
-5. Commit and push your changes regularly to your GitHub repository.
-
-## Submission
-
-Your **forked repository** will serve as your submission.
-
-Ensure that:
-- All Exercise 5 files are inside the **Exercise 5 folder**
-- Your code is pushed to GitHub
-- Your repository link is submitted through the submission system.
+## Repository Structure

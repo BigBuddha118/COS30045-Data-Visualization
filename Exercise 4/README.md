@@ -6,17 +6,23 @@ The exercises in this folder guide you through the fundamental concepts needed t
 
 ## Exercises
 
-- **Exercise 4.1 – Draw SVGs**  
+- **Exercise 4.1 – Draw SVGs**
   Learn how to create SVG elements that are used to draw graphics on a webpage.
 
-- **Exercise 4.3 – D3 setup**  
+- **Exercise 4.2 – Manipulate and add elements with D3**
+  Use D3 to select existing HTML elements and change their style, and to append new elements (paragraphs, SVGs, rectangles) to the DOM.
+
+- **Exercise 4.3 – D3 setup**
   Set up the D3 library in your webpage.
 
-- **Exercise 4.4 – Load data from CSV**  
+- **Exercise 4.4 – Load data from CSV**
   Learn how to load and read data from a CSV file using D3.
 
-- **Exercise 4.5 – D3 binding and drawing with data**  
+- **Exercise 4.5 – D3 binding and drawing with data**
   Bind data to visual elements and draw graphics based on the data.
 
-- **Exercise 4.6 – Scaling charts**  
+- **Exercise 4.6 – Scaling charts**
   Use D3 scales to map data values to positions in a chart.
+
+- **Exercise 4.7 – Adding labels**
+  Group bars and labels together using `<g>` and `transform`, and add category and value labels to the bar chart.
