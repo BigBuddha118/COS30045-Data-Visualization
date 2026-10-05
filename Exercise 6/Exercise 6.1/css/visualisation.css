@@ -1,0 +1,31 @@
+.responsive-svg-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.responsive-svg-container svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #fafafa;
+}
+
+.bar {
+    transition: fill 0.15s ease;
+}
+
+.bar:hover {
+    fill: #ffb703;
+}
+
+.axis-label {
+    font-size: 14px;
+    fill: #333;
+}
+
+.x-axis text,
+.y-axis text {
+    font-size: 12px;
+}

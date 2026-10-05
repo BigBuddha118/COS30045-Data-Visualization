@@ -1,0 +1,1 @@
+// Exercise 6.2 - Interactions (built in the next exercise)
