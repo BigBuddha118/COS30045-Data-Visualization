@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Energy Consumption Histogram</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/visualisation.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo-link">
+      <img src="images/PowerIcon.png" alt="Power logo">
+      <span>Appliance Energy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="televisions.html">Televisions</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Energy Consumption Distribution</h1>
+    <p>Distribution of annual energy consumption (kWh/year) across approved TV models, January 2026 data.</p>
+    
+    <div id="filters_screen"></div>
+    <div id="histogram" class="responsive-svg-container"></div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Vaeshen Raj BCSSUT Data Visualization</p>
+    <p class="ai-note">Some code and the site icon were generated with the assistance of Generative AI (Claude).</p>
+  </footer>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/load-data.js"></script>
+  <script src="js/shared-constants.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/histogram.js"></script>
+</body>
+</html>
